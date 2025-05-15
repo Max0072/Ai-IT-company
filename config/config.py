@@ -6,6 +6,7 @@ import logging
 
 load_dotenv()
 
+
 def _set_env(var: str):
     if not os.environ.get(var):
         os.environ[var] = getpass.getpass(f"{var}: ")
@@ -17,8 +18,6 @@ llm_o3_mini = ChatOpenAI(model="gpt-o3-mini", temperature=0)
 llm_o1 = ChatOpenAI(model="gpt-o1", temperature=0)
 
 
-
-# Базовая настройка
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
@@ -26,5 +25,4 @@ logging.basicConfig(
 
 logger = logging.getLogger("langgraph")
 
-# Пример использования
 logger.info("Starting LangGraph process")
